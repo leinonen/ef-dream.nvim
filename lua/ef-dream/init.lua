@@ -5,15 +5,13 @@ function M.setup(opts)
 end
 
 function M.load()
-  -- Reset state
   vim.cmd("highlight clear")
-  vim.opt.background = "dark"
   if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")
   end
   vim.g.colors_name = "ef-dream"
 
-  local p = require("ef-dream.palette")
+  local p = require("ef-dream.palette").get_palette()
   local cfg = require("ef-dream.config").current
 
   require("ef-dream.highlights").apply(p, cfg)
