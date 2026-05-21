@@ -4,15 +4,24 @@ function M.setup(opts)
   require("ef-dream.config").set(opts)
 end
 
-function M.load()
+function M.load(variant)
   vim.cmd("highlight clear")
   if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")
   end
-  vim.g.colors_name = "ef-dream"
 
-  local p = require("ef-dream.palette").get_palette()
   local cfg = require("ef-dream.config").current
+  variant = variant or cfg.variant
+
+  if variant == "matcha" then
+    vim.g.colors_name = vim.o.background == "light" and "ef-matcha-light" or "ef-matcha-dark"
+  elseif variant then
+    vim.g.colors_name = "ef-" .. variant
+  else
+    vim.g.colors_name = "ef-dream"
+  end
+
+  local p = require("ef-dream.palette").get_palette(variant)
 
   require("ef-dream.highlights").apply(p, cfg)
 

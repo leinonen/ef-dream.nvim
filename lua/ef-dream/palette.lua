@@ -255,8 +255,15 @@ L.rainbow = {
   "#902020",  -- 8 red_faint
 }
 
-function M.get_palette()
-  if vim.o.background == "light" then
+function M.get_palette(variant)
+  if variant == "matcha" then
+    local matcha = require("ef-dream.palettes.matcha")
+    return vim.o.background == "light" and matcha.light or matcha.dark
+  elseif variant == "matcha-dark" then
+    return require("ef-dream.palettes.matcha").dark
+  elseif variant == "matcha-light" then
+    return require("ef-dream.palettes.matcha").light
+  elseif vim.o.background == "light" then
     return L
   end
   return M

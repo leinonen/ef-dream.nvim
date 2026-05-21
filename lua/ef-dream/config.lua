@@ -1,6 +1,7 @@
 local M = {}
 
 local defaults = {
+  variant = nil,
   italic_comments = true,
   italic_keywords = false,
   italic_functions = false,
