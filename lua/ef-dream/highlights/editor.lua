@@ -32,8 +32,8 @@ function M.apply(p, cfg)
   hi("CursorLineSign", { bg = "NONE" })
 
   -- Sign column
-  hi("SignColumn",   { fg = p.fg_dim, bg = cfg.transparent_background and "NONE" or p.bg_main })
-  hi("FoldColumn",   { fg = p.fg_dim, bg = cfg.transparent_background and "NONE" or p.bg_main })
+  hi("SignColumn",   { fg = p.fg_dim, bg = "NONE" })
+  hi("FoldColumn",   { fg = p.fg_dim, bg = "NONE" })
   hi("Folded",       { fg = p.fg_alt, bg = p.bg_dim, italic = true })
 
   -- Selection and search
