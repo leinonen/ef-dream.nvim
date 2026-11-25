@@ -5,8 +5,8 @@ function M.apply(p, cfg)
     vim.api.nvim_set_hl(0, name, opts)
   end
 
-  hi("Comment",        { fg = p.comment, italic = cfg.italic_comments })
-  hi("SpecialComment", { fg = p.comment, bold = true })
+  hi("Comment",        { fg = p.comment, bg = "NONE", italic = cfg.italic_comments })
+  hi("SpecialComment", { fg = p.comment, bg = "NONE", bold = true })
 
   hi("Constant",   { fg = p.constant })
   hi("String",     { fg = p.string })
@@ -46,7 +46,7 @@ function M.apply(p, cfg)
   hi("Underlined", { fg = p.fg_link, underline = true })
   hi("Ignore",     { fg = p.fg_dim })
   hi("Error",      { fg = p.red, bg = p.bg_err, bold = true })
-  hi("Todo",       { fg = p.warning, bg = p.bg_warning, bold = true })
+  hi("Todo",       { fg = p.warning, bg = "NONE", bold = true })
   hi("Bold",       { bold = true })
   hi("Italic",     { italic = true })
 end
